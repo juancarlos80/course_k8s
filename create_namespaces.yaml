@@ -4,3 +4,17 @@ metadata:
   name: dev
   labels:
     name: development
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+  labels:
+    name: production
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test
+  labels:
+    name: testing
