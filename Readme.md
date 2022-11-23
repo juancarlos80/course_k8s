@@ -1,1 +1,1 @@
-# course k8s repo
+# course k8s repository
