@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:  
+  name: mysql-svc
+  labels: 
+    tier: mysql-server
+spec:
+  selector:
+    tier: mysql-server
+  ports:
+    - targetPort: 3306
+      port: 3306

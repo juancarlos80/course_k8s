@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+      tier: backend-server
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: backend-server    
+    spec:    
+      containers:
+      - name: backend
+        image: juancrespo/practice:2.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8087
+        envFrom:
+          - configMapRef:
+              name: mysql-config
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password      
